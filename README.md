@@ -34,6 +34,17 @@
 
 > This pipeline requires specifying some parameters before running for the reference and list of target genes sequenced in the profiles test in nextflow.config file.
 
+profiles {
+   test {
+      params.ref = "/home/trainer07/w3/hg38/hg38_selected"        
+      params.reference_fasta = "/home/trainer07/w3/hg38/hg38_selected.fa"
+      params.reference_index = "/home/trainer07/w3/hg38/hg38_selected.fa.fai"
+      params.reference_dict = "/home/trainer07/w3/hg38/hg38_selected.dict"
+      params.intervals = "/home/trainer07/ktrack.mrd165/MRD165.bed"
+      params.probe = "/home/trainer07/ktrack.mrd165/Probe.MRD165.interval_list"
+      params.interval_list = "/home/trainer07/ktrack.mrd165/MRD165.interval_list"        
+   }
+
 > Next, create folder for each tool using pixi and copy the path to that folder to replace the path after pixi run --manifest-path in each module.
 ```
 mkdir tool
@@ -64,7 +75,7 @@ Now, you can run the pipeline using:
 
 ```bash
 nextflow run main.nf \
-   -profile test <docker/singularity/.../institute> \
+   -profile test \
    --input samplesheet.csv \
    --outdir <OUTDIR>
 ```
