@@ -33,7 +33,7 @@
 > If you are new to Nextflow and nf-core, please refer to [this page](https://nf-co.re/docs/get_started/environment_setup/overview) on how to set-up Nextflow. 
 
 > This pipeline requires specifying some parameters before running for the reference and list of target genes sequenced in the profiles test in nextflow.config file.
-
+```
 profiles {
    test {
       params.ref = "/home/trainer07/w3/hg38/hg38_selected"        
@@ -44,7 +44,7 @@ profiles {
       params.probe = "/home/trainer07/ktrack.mrd165/Probe.MRD165.interval_list"
       params.interval_list = "/home/trainer07/ktrack.mrd165/MRD165.interval_list"        
    }
-
+```
 > Next, create folder for each tool using pixi and copy the path to that folder to replace the path after pixi run --manifest-path in each module.
 ```
 mkdir tool
