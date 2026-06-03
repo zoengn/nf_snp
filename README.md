@@ -34,7 +34,16 @@
 
 > This pipeline requires specifying some parameters before running for the reference and list of target genes sequenced in the profiles test in nextflow.config file.
 
-> Next, create folder for each tool using pixi and copy the path to that folder to replace the path after pixi run --manifest-path in each module 
+> Next, create folder for each tool using pixi and copy the path to that folder to replace the path after pixi run --manifest-path in each module.
+```
+mkdir tool
+cd tool
+pixi init gatk
+cd gatk
+pixi project channel add bioconda
+pixi add gatk4
+pixi add r #only this tool need R for write pdf report from CollectInsertSizeMetrics
+```
 
 > Then, prepare a samplesheet with your input data that looks as follows:
 
